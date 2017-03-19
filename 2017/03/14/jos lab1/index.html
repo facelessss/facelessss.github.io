@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="love loading force">
+    <meta name="keyword" content="undefined">
+    <meta name="theme-color" content="#600090">
+    <meta name="msapplication-navbutton-color" content="#600090">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="#600090">
+    <link rel="shortcut icon" href="https://cdn4.iconfinder.com/data/icons/ionicons/512/icon-person-128.png">
+    <link rel="alternate" type="application/atom+xml" title="ZhouJY" href="/atom.xml">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+    <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.css">
+    <title>
+        
+        undefined
+        
+    </title>
+
+    <link rel="canonical" href="http://yoursite.com/2017/03/14/jos lab1/">
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/blog-style.css">
+
+    <!-- Pygments Github CSS -->
+    <link rel="stylesheet" href="/css/syntax.css">
+</head>
+
+<style>
+
+    header.intro-header {
+        background-image: url('undefined')
+    }
+</style>
+<!-- hack iOS CSS :active style -->
+<body ontouchstart="" class="animated fadeIn">
+<!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top " id="nav-top" data-ispost = "true" data-istags="false
+" data-ishome = "false" >
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand animated pulse" href="/">
+                <span class="brand-logo">
+                    ZhouJY
+                </span>
+                's Blog
+            </a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <!-- Known Issue, found by Hux:
+            <nav>'s height woule be hold on by its content.
+            so, when navbar scale out, the <nav> will cover tags.
+            also mask any touch event of tags, unfortunately.
+        -->
+        <!-- /.navbar-collapse -->
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+					
+                    
+					
+					
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!-- /.container -->
+</nav>
+<script>
+    // Drop Bootstarp low-performance Navbar
+    // Use customize navbar with high-quality material design animation
+    // in high-perf jank-free CSS3 implementation
+//    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        // CLOSE
+            $navbar.className = " ";
+            // wait until animation end.
+            setTimeout(function(){
+                // prevent frequently toggle
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        // OPEN
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+<!-- Main Content -->
+
+<!--only post-->
+
+
+<img class="wechat-title-img"
+     src="">
+
+
+<style>
+    
+    header.intro-header {
+        background-image: url('')
+    }
+
+    
+</style>
+
+<header class="intro-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
+                <div class="post-heading">
+                    <h1></h1>
+                    
+                    <span class="meta">
+                         作者 zhoustarr@gmail.com
+                        <span>
+                          日期 2017-03-14
+                         </span>
+                    </span>
+                    <div class="tags text-center">
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="post-title-haojen">
+        <span>
+            
+        </span>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+            <!-- Post Container -->
+            <div class="col-lg-8 col-lg-offset-1 col-sm-9 post-container">
+                <h4 id="5140379016-周剑宇"><a href="#5140379016-周剑宇" class="headerlink" title="5140379016 周剑宇"></a>5140379016 周剑宇</h4><blockquote>
+<p>PC bootstrap</p>
+</blockquote>
+<p>作业文档解释的十分清楚：启动后把ROM BIOS加载到内存0x000f0000–0x000fffff，初始的段寄存器和指针寄存器是0xf000和0xfff0，在实模式下对应的第一条指令的物理地址就是0xffff0,第一条跳转到0xfe05b</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">in %al,port #把%al中的值写到端口地址为port的端口中</div><div class="line">out port,%al #与上相反</div></pre></td></tr></table></figure>
+<p>可以看到写了这些端口地址0xd,0xda,0xd6,0x70,0x71…再看了链接材料：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">0000-000f	Slave DMA controller</div><div class="line">00C0-00DE	Master DMA controller</div><div class="line">0070-0071	NMI Enable / Real Time Clock</div></pre></td></tr></table></figure>
+<p>大概是对DMA做了一些初始化吧，然后关闭NMI，开启时钟</p>
+<blockquote>
+<p>Boot loader</p>
+</blockquote>
+<p>文档中讲过的略过，直接开始回答问题：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">7c00 - 7c1d:</div><div class="line">#asm的注释中写的十分清楚，关中断，设置段寄存器，开启a20线</div><div class="line">7c1e: lgdt    gdtdesc</div><div class="line">7c24: movl    %cr0, %eax</div><div class="line">7c26: orl     $CR0_PE_ON, %eax</div><div class="line">7c2a: movl    %eax, %cr0</div><div class="line">#load GDT?</div><div class="line">#看了一下gdtdesc，应该是把gdt的地址和大小-1载入到gdt寄存器中</div><div class="line">#然后是把cr0修改为1，也就是进入了保护模式</div><div class="line">7c32 - 7c3f:</div><div class="line">#进入保护模式后又设置了一遍段寄存器</div><div class="line">7c40: movl    $start, %esp</div><div class="line">#把栈指针设为7c40</div><div class="line">#不是很明白，但是看上去很舒服，很有灵性</div></pre></td></tr></table></figure>
+<p>然后就进入了main.c中的bootman：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// read 1st page off disk</span></div><div class="line">	readseg((<span class="keyword">uint32_t</span>) ELFHDR, SECTSIZE*<span class="number">8</span>, <span class="number">0</span>);</div><div class="line"><span class="comment">//...</span></div><div class="line"><span class="comment">// Read 'count' bytes at 'offset' from kernel into physical address 'pa'.</span></div></pre></td></tr></table></figure>
+<p>功能是把从kernel开始8*512个byte的内容读入到ELFHDR(0x10000)的地方</p>
+<p>readseg是通过readsect实现的，从名字上看是读指定扇区位置的内容。</p>
+<p>而exercise3的答案是</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">((<span class="keyword">void</span> (*)(<span class="keyword">void</span>)) (ELFHDR-&gt;e_entry))();</div></pre></td></tr></table></figure>
+<p>就是跳转到entry，即内核入口，boot.asm中：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">((void (*)(void)) (ELFHDR-&gt;e_entry))();</div><div class="line">    7d74:	ff 15 18 00 01 00    	call   *0x10018</div></pre></td></tr></table></figure>
+<p>回答文档下面的三个问题：</p>
+<ol>
+<li><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">ljmp    $PROT_MODE_CSEG, $protcseg</div><div class="line">    7c2d:	ea 32 7c 08 00 66 b8 	ljmp   $0xb866,$0x87c32</div></pre></td></tr></table></figure>
+</li>
+<li><p>最后一条是((void (*)(void)) (ELFHDR-&gt;e_entry))();</p>
+<p>跳转后到(*0x10018) , 第一条指令是entry.S中的</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">entry:</div><div class="line">	movw	$0x1234,0x472			# warm boot</div></pre></td></tr></table></figure>
+</li>
+<li><p>放在ELF头部信息中，代码很清楚：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">ph = (<span class="keyword">struct</span> Proghdr *) ((<span class="keyword">uint8_t</span> *) ELFHDR + ELFHDR-&gt;e_phoff);</div><div class="line">eph = ph + ELFHDR-&gt;e_phnum;</div><div class="line"><span class="keyword">for</span> (; ph &lt; eph; ph++)</div><div class="line">	<span class="comment">// p_pa is the load address of this segment (as well</span></div><div class="line">	<span class="comment">// as the physical address)</span></div><div class="line">	readseg(ph-&gt;p_pa, ph-&gt;p_memsz, ph-&gt;p_offset);</div></pre></td></tr></table></figure>
+<p>后续的readseg都是根据ELFHDR中的数据来的。</p>
+</li>
+</ol>
+<p>练习5就不用讲了，关于c的指针的。</p>
+<p>练习6：</p>
+<blockquote>
+<p>Kernel</p>
+</blockquote>
+<p>这是进入kernel后最初的代码：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">entry:</div><div class="line">	movw	$0x1234,0x472			# warm boot</div><div class="line">	movl	$(RELOC(entry_pgdir)), %eax</div><div class="line">	movl	%eax, %cr3</div><div class="line">	movl	%cr0, %eax</div><div class="line">	orl	$(CR0_PE|CR0_PG|CR0_WP), %eax</div><div class="line">	movl	%eax, %cr0</div></pre></td></tr></table></figure>
+<p>通过gdb一步步运行，发现在movl    %eax, %cr0指令前，print一个0xf00xxxxxx处的内容，都是0，而在这一步之后，映射到了address-0xf0000000的低位地址处。</p>
+<p>也就是说在这一步之后，虚拟地址的映射完成。如果注释掉，之后的“mov    $relocated, %eax  ;jmp *%eax”就会出错，因为要jmp的地址是虚拟地址。</p>
+<p>然后看到<code>kern/printf.c</code>， <code>lib/printfmt.c</code>,<code>kern/console.c</code>三个文件，我没有去trace他们的调用关系，因为读代码就可以明白了。前两个文件中调用了console.c中的函数，看了下显然console.c实现的就是打印的功能，和i/o相关的，所以不需要认真读。printf.c中的cprintf和vcprintf函数就是我们调用的print函数，而他们是通过printfmt.c中的vprintfmt和自己定义的putch（通过console.c中的cputchar实现）这两个函数实现的，而printfmt.c中实现的是根据输入的内容格式完成最终的打印内容，所以我认为printf.c是系统print功能的接口通过调用lib/printfmt.c得到最终的打印内容，通过kern/console.c实现实际打印到显示屏上的效果。</p>
+<p>实习八进制：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// (unsigned) octal</span></div><div class="line">		<span class="keyword">case</span> <span class="string">'o'</span>:</div><div class="line">			putch(<span class="string">'0'</span>, putdat);</div><div class="line">			num = getuint(&amp;ap, lflag);</div><div class="line">			base = <span class="number">8</span>;</div><div class="line">			<span class="keyword">goto</span> number;</div></pre></td></tr></table></figure>
+<p>实现“%+”：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// flag to get a '+' precede positive numbers</span></div><div class="line">		<span class="keyword">case</span> <span class="string">'+'</span></div><div class="line">			pflag = <span class="number">1</span>;</div><div class="line">			<span class="keyword">goto</span> reswitch;</div></pre></td></tr></table></figure>
+<p>实现“%n”：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> <span class="keyword">char</span> *null_error = <span class="string">"\nerror! writing through NULL pointer! (%n argument)\n"</span>;</div><div class="line"><span class="keyword">const</span> <span class="keyword">char</span> *overflow_error = <span class="string">"\nwarning! The value %n argument pointed to has been overflowed!\n"</span>;</div><div class="line">            <span class="comment">// Your code here</span></div><div class="line">			<span class="keyword">signed</span> <span class="keyword">char</span> *arg = va_arg(ap ,<span class="keyword">signed</span> <span class="keyword">char</span> * );</div><div class="line">			<span class="keyword">if</span>(arg == <span class="literal">NULL</span>)&#123;</div><div class="line">				printfmt(putch,putdat,<span class="string">"%s"</span>,null_error);</div><div class="line">			&#125;<span class="keyword">else</span>&#123;</div><div class="line">				<span class="keyword">int</span> i = *(<span class="keyword">int</span> *)putdat;</div><div class="line">				<span class="keyword">if</span>( i &gt; <span class="number">127</span>)&#123;</div><div class="line">					printfmt(putch,putdat,<span class="string">"%s"</span>,overflow_error);</div><div class="line">					*arg = <span class="number">-1</span>;</div><div class="line">				&#125;<span class="keyword">else</span>&#123;</div><div class="line">					*arg = i;</div><div class="line">				&#125;</div><div class="line">			&#125;</div></pre></td></tr></table></figure>
+<p>靠左行驶：</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div></pre></td><td class="code"><pre><div class="line">number:</div><div class="line">			if(rtpflag == 1)&#123;</div><div class="line">				printnumRP(putch, putdat, num, base, width, padc , 0);</div><div class="line">			&#125;else&#123;</div><div class="line">				printnum(putch, putdat, num, base, width, padc);</div><div class="line">			&#125;</div><div class="line"></div><div class="line">			break;</div><div class="line">//...</div><div class="line">static int </div><div class="line">printnumRP(void (*putch)(int, void*), void *putdat,</div><div class="line">	 unsigned long long num, unsigned base, int width, int padc , int or)</div><div class="line">&#123;</div><div class="line">  	int sp = 0;</div><div class="line">	// first recursively print all preceding (more significant) digits</div><div class="line">	if (num &gt;= base) &#123;</div><div class="line">		// first print this (the least significant) digit</div><div class="line">		</div><div class="line">		sp = printnumRP(putch, putdat, num / base, base, width - 1, padc , or + 1);</div><div class="line">	&#125; else &#123;</div><div class="line">		// print any needed pad characters after first digit</div><div class="line">		sp = width;</div><div class="line">	&#125;</div><div class="line">  	putch("0123456789abcdef"[num % base], putdat);</div><div class="line">  	if(or == 0)&#123;</div><div class="line">      		while (--sp &gt; 0)</div><div class="line">			putch(padc, putdat);</div><div class="line">  	&#125;</div><div class="line">  	return sp;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>我没有去改原来的printnum，因为我觉得把所有的判断放在上一层，这里简单的实现最简单的print number功能更为合适。</p>
+<blockquote>
+<p>Stack</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"># stack backtraces will be terminated properly.</div><div class="line">movl	$0x0,%ebp			# nuke frame pointer</div><div class="line"># Set the stack pointer</div><div class="line">movl	$(bootstacktop),%esp</div><div class="line"># now to C code</div><div class="line">call	i386_init</div></pre></td></tr></table></figure>
+<p>这是在指针的初始值。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">	.p2align	PGSHIFT		# force page alignment</div><div class="line">	.globl		bootstack</div><div class="line">bootstack:</div><div class="line">	.space		KSTKSIZE</div><div class="line">	.globl		bootstacktop   </div><div class="line">bootstacktop:</div></pre></td></tr></table></figure>
+<p>在inc/memlayout.h中找到KSTKSIZE的大小，是8个page size的大小：8*4096</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">#define KSTKSIZE	(8*PGSIZE)   		// size of a kernel stack</div></pre></td></tr></table></figure>
+<p>所以栈的地址的空间是从bootstacktop开始向下8*PGSIZE大小。</p>
+<p>之后的练习基本上就是写写代码了，没有什么可提的。</p>
+
+                <hr>
+                
+
+                <ul class="pager">
+                    
+                    
+                    <li class="next">
+                        <a href="/2017/03/12/hello-world/" data-toggle="tooltip" data-placement="top"
+                           title="hello world">Next Post &rarr;</a>
+                    </li>
+                    
+                </ul>
+
+                
+
+                
+
+            </div>
+
+            <div class="hidden-xs col-sm-3 toc-col">
+                <div class="toc-wrap">
+                    <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#5140379016-周剑宇"><span class="toc-text">5140379016 周剑宇</span></a></li></ol>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <!-- Sidebar Container -->
+
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                <!-- Featured Tags -->
+                
+
+                <!-- Friends Blog -->
+                
+            </div>
+        </div>
+
+    </div>
+</article>
+
+
+
+
+
+
+<!-- Footer -->
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
+                <br>
+                <ul class="list-inline text-center">
+                
+                
+                
+
+                
+
+                
+
+                
+
+                
+
+                </ul>
+                <p class="copyright text-muted">
+                    Copyright &copy; ZhouJY 2017
+                    <br>
+                    <span id="busuanzi_container_site_pv" style="font-size: 12px;">PV: <span id="busuanzi_value_site_pv"></span> Times</span>
+                    <br>
+                    Theme by <a href="https://haojen.github.io/">Haojen Ma</a>
+                </p>
+
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- jQuery -->
+<script src="/js/jquery.min.js"></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="/js/bootstrap.min.js"></script>
+
+<!-- Custom Theme JavaScript -->
+<script src="/js/blog.js"></script>
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+<!-- jquery.tagcloud.js -->
+<script>
+    // only load tagcloud.js in tag.html
+    if($('#tag_cloud').length !== 0){
+        async("http://yoursite.com/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                //size: {start: 1, end: 1, unit: 'em'},
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+<!--fastClick.js -->
+<script>
+    async("//cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+<!-- Google Analytics -->
+
+
+
+<!-- Baidu Tongji -->
+
+
+<!-- swiftype -->
+<script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+  (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+  e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+
+  _st('install','undefined','2.0.0');
+</script>
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+<!--wechat title img-->
+<img class="wechat-title-img" src="undefined">
+</body>
+
+</html>
