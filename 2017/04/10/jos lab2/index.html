@@ -7,7 +7,7 @@
     
 
     <title>
-       | A stupid fish 
+      jos operation system lab2 | A stupid fish 
     </title>
 
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
@@ -16,22 +16,22 @@
     
     
 
-    <meta name="description" content="title: jos operation system lab2date: 2017-04-10 20:55:56tags: os cs
-boot_alloc:
-1234result = nextfree;nextfree += ROUNDUP( n , PGSIZE);KADDR(PADDR(nextfree)); //check if npages * pgsizereturn result;">
+    <meta name="description" content="boot_alloc:
+1234result = nextfree;nextfree += ROUNDUP( n , PGSIZE);KADDR(PADDR(nextfree)); //check if npages * pgsizereturn result;
+page_init: [IOPHYSMEM, EXTPHYSMEM) and [EXTPHYSMEM,np*pgsize) is not">
 <meta property="og:type" content="article">
-<meta property="og:title" content=" | A stupid fish">
-<meta property="og:url" content="http://lfalfa.me/2017/04/01/jos lab2/index.html">
+<meta property="og:title" content="jos operation system lab2 | A stupid fish">
+<meta property="og:url" content="http://lfalfa.me/2017/04/10/jos lab2/index.html">
 <meta property="og:site_name" content="A stupid fish">
-<meta property="og:description" content="title: jos operation system lab2date: 2017-04-10 20:55:56tags: os cs
-boot_alloc:
-1234result = nextfree;nextfree += ROUNDUP( n , PGSIZE);KADDR(PADDR(nextfree)); //check if npages * pgsizereturn result;">
-<meta property="og:updated_time" content="2017-04-25T08:21:11.000Z">
+<meta property="og:description" content="boot_alloc:
+1234result = nextfree;nextfree += ROUNDUP( n , PGSIZE);KADDR(PADDR(nextfree)); //check if npages * pgsizereturn result;
+page_init: [IOPHYSMEM, EXTPHYSMEM) and [EXTPHYSMEM,np*pgsize) is not">
+<meta property="og:updated_time" content="2017-04-25T08:25:11.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content=" | A stupid fish">
-<meta name="twitter:description" content="title: jos operation system lab2date: 2017-04-10 20:55:56tags: os cs
-boot_alloc:
-1234result = nextfree;nextfree += ROUNDUP( n , PGSIZE);KADDR(PADDR(nextfree)); //check if npages * pgsizereturn result;">
+<meta name="twitter:title" content="jos operation system lab2 | A stupid fish">
+<meta name="twitter:description" content="boot_alloc:
+1234result = nextfree;nextfree += ROUNDUP( n , PGSIZE);KADDR(PADDR(nextfree)); //check if npages * pgsizereturn result;
+page_init: [IOPHYSMEM, EXTPHYSMEM) and [EXTPHYSMEM,np*pgsize) is not">
     
     
     
@@ -216,17 +216,22 @@ classes that you can use:
 
   <header class="post-header">
     
-    <h1 class="post-title"></h1>
+    <h1 class="post-title">jos operation system lab2</h1>
 
     
 
     <div class="post-meta">
-      <time datetime="2017-04-01" class="post-meta__date date">2017-04-01</time> 
+      <time datetime="2017-04-10" class="post-meta__date date">2017-04-10</time> 
 
       <span class="post-meta__tags tags">
 
           
 
+          
+             &#8226; 标签:
+            <font class="tags">
+              <a class="tags-link" href="/tags/os-cs/">os cs</a>
+            </font>
           
 
       </span>
@@ -237,8 +242,7 @@ classes that you can use:
   </header>
 
   <section id="post-content" class="article-content post">
-    <p>title: jos operation system lab2<br>date: 2017-04-10 20:55:56<br>tags: os cs</p>
-<p>boot_alloc:</p>
+    <p>boot_alloc:</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">result = nextfree;</div><div class="line">nextfree += ROUNDUP( n , PGSIZE);</div><div class="line">KADDR(PADDR(nextfree)); <span class="comment">//check if npages * pgsize</span></div><div class="line"><span class="keyword">return</span> result;</div></pre></td></tr></table></figure>
 <p>page_init: [IOPHYSMEM, EXTPHYSMEM) and [EXTPHYSMEM,np*pgsize) is not free</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">cprintf(<span class="string">"page init\n"</span>);</div><div class="line"><span class="keyword">size_t</span> i;</div><div class="line"><span class="keyword">for</span> (i = <span class="number">1</span>; i &lt; npages_basemem; i++) &#123;</div><div class="line">pages[i].pp_ref = <span class="number">0</span>;</div><div class="line">pages[i].pp_link = page_free_list;</div><div class="line">page_free_list = &amp;pages[i];</div><div class="line">&#125;</div><div class="line"><span class="keyword">int</span> np = (<span class="keyword">int</span>)ROUNDUP(((<span class="keyword">char</span>*)pages) + (<span class="keyword">sizeof</span>(<span class="keyword">struct</span> Page) * npages) - KERNBASE, PGSIZE)/PGSIZE;</div><div class="line"><span class="keyword">for</span> (i = np; i &lt; npages; i++) &#123;</div><div class="line">pages[i].pp_ref = <span class="number">0</span>;</div><div class="line">pages[i].pp_link = page_free_list;</div><div class="line">page_free_list = &amp;pages[i];</div><div class="line">&#125;</div><div class="line">chunk_list = <span class="literal">NULL</span>;</div></pre></td></tr></table></figure>
@@ -279,7 +283,7 @@ classes that you can use:
 
 <section class="post-comments">
 
-    <div class="ds-thread" data-thread-key="2017/04/01/jos lab2/"></div>
+    <div class="ds-thread" data-thread-key="2017/04/10/jos lab2/"></div>
 
     <script type="text/javascript">
       var duoshuoQuery = {short_name:"alfalfa"};
