@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+
+    
+
+    <title>
+      jos operation system lab3 | A stupid fish 
+    </title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    
+      <meta name="author" content="zhoustarr@gmail.com">
+    
+    
+
+    <meta name="description" content="1.Allocating the Environments Arraymem_init()分配内存给env数组：
+12345size_t total_size = sizeof(struct Page)*npages;pages = boot_alloc(total_size);memset(pages, 0, total_size);size_t env_size=NENV * sizeof(s">
+<meta property="og:type" content="article">
+<meta property="og:title" content="jos operation system lab3 | A stupid fish">
+<meta property="og:url" content="http://lfalfa.me/2017/04/23/jos lab3/index.html">
+<meta property="og:site_name" content="A stupid fish">
+<meta property="og:description" content="1.Allocating the Environments Arraymem_init()分配内存给env数组：
+12345size_t total_size = sizeof(struct Page)*npages;pages = boot_alloc(total_size);memset(pages, 0, total_size);size_t env_size=NENV * sizeof(s">
+<meta property="og:updated_time" content="2017-04-25T08:27:08.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="jos operation system lab3 | A stupid fish">
+<meta name="twitter:description" content="1.Allocating the Environments Arraymem_init()分配内存给env数组：
+12345size_t total_size = sizeof(struct Page)*npages;pages = boot_alloc(total_size);memset(pages, 0, total_size);size_t env_size=NENV * sizeof(s">
+    
+    
+    
+      <link rel="icon" type="image/x-icon" href="/img/head.png">
+    
+    <link rel="stylesheet" href="/css/uno.css">
+    <link rel="stylesheet" href="/css/highlight.css">
+    <link rel="stylesheet" href="/css/archive.css">
+    <link rel="stylesheet" href="/css/china-social-icon.css">
+
+</head>
+<body>
+
+    <span class="mobile btn-mobile-menu">
+        <i class="icon icon-list btn-mobile-menu__icon"></i>
+        <i class="icon icon-x-circle btn-mobile-close__icon hidden"></i>
+    </span>
+
+    
+
+<header class="panel-cover panel-cover--collapsed">
+
+
+  <div class="panel-main">
+
+  
+    <div class="panel-main__inner panel-inverted">
+    <div class="panel-main__content">
+
+        
+        <a href="/" title="link to homepage for A stupid fish"><img src="/img/head.png" width="80" alt="A stupid fish logo" class="panel-cover__logo logo" /></a>
+        
+
+        <h1 class="panel-cover__title panel-title"><a href="/" title="link to homepage">A stupid fish</a></h1>
+        <hr class="panel-cover__divider" />
+
+        
+
+        <div class="navigation-wrapper">
+
+          <nav class="cover-navigation cover-navigation--primary">
+            <ul class="navigation">
+
+              
+                
+                <li class="navigation__item"><a href="/" title="" class="">首页</a></li>
+              
+                
+                <li class="navigation__item"><a href="/#blog" title="" class="blog-button">文章</a></li>
+              
+                
+                <li class="navigation__item"><a href="/archive" title="" class="">归档</a></li>
+              
+
+            </ul>
+          </nav>
+
+          <!--
+To add a new social icon simply duplicate one of the list items from below
+and change the class in the <i> tag to match the desired social network
+and then add your link to the <a>. Here is a full list of social network
+classes that you can use:
+
+    icon-social-500px
+    icon-social-behance
+    icon-social-delicious
+    icon-social-designer-news
+    icon-social-deviant-art
+    icon-social-digg
+    icon-social-dribbble
+    icon-social-facebook
+    icon-social-flickr
+    icon-social-forrst
+    icon-social-foursquare
+    icon-social-github
+    icon-social-google-plus
+    icon-social-hi5
+    icon-social-instagram
+    icon-social-lastfm
+    icon-social-linkedin
+    icon-social-medium
+    icon-social-myspace
+    icon-social-path
+    icon-social-pinterest
+    icon-social-rdio
+    icon-social-reddit
+    icon-social-skype
+    icon-social-spotify
+    icon-social-stack-overflow
+    icon-social-steam
+    icon-social-stumbleupon
+    icon-social-treehouse
+    icon-social-tumblr
+    icon-social-twitter
+    icon-social-vimeo
+    icon-social-xbox
+    icon-social-yelp
+    icon-social-youtube
+    icon-social-zerply
+    icon-mail
+
+-------------------------------->
+
+<!-- add social info here -->
+
+
+
+<nav class="cover-navigation navigation--social">
+  <ul class="navigation">
+
+    
+      <!-- Github -->
+      <li class="navigation__item">
+        <a href="https://github.com/facelessss" title="GitHub">
+          <i class='icon icon-social-github'></i>
+          <span class="label">GitHub</span>
+        </a>
+      </li>
+    
+
+    
+      <li class="navigation__item">
+        <a href="http://zhihu.com/people/zhou-xing-xing-69-98" title="ZhiHu">
+          <i class='icon icon-social-zerply'></i>
+          <span class="label">ZhiHu</span>
+        </a>
+      </li>
+    
+
+    
+        <li class="navigation__item">
+          <a href="https://www.reddit.com/user/fasslev" title="Reddit">
+            <i class='icon icon-social-reddit'></i>
+            <span class="label">Reddit</span>
+          </a>
+        </li>
+    
+
+    
+        <li class="navigation__item">
+          <a href="https://dribbble.com/facelessju" title="Dribbble">
+            <i class='icon icon-social-dribbble'></i>
+            <span class="label">Dribbble</span>
+          </a>
+        </li>
+    
+
+    
+
+      <!--
+      <li class="navigation__item">
+        <a href="" title="">
+          <i class='icon cs-icon-weibo'></i>
+          <span class="label">Weibo</span>
+        </a>
+      </li>
+        -->
+
+
+
+  </ul>
+</nav>
+
+
+
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="panel-cover--overlay"></div>
+  </div>
+</header>
+
+    <div class="content-wrapper">
+        <div class="content-wrapper__inner entry">
+            
+
+<article class="post-container post-container--single">
+
+  <header class="post-header">
+    
+    <h1 class="post-title">jos operation system lab3</h1>
+
+    
+
+    <div class="post-meta">
+      <time datetime="2017-04-23" class="post-meta__date date">2017-04-23</time> 
+
+      <span class="post-meta__tags tags">
+
+          
+
+          
+             &#8226; 标签:
+            <font class="tags">
+              <a class="tags-link" href="/tags/os-cs/">os cs</a>
+            </font>
+          
+
+      </span>
+    </div>
+    
+    
+
+  </header>
+
+  <section id="post-content" class="article-content post">
+    <h4 id="1-Allocating-the-Environments-Array"><a href="#1-Allocating-the-Environments-Array" class="headerlink" title="1.Allocating the Environments Array"></a>1.Allocating the Environments Array</h4><p>mem_init()分配内存给env数组：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">size_t</span> total_size = <span class="keyword">sizeof</span>(<span class="keyword">struct</span> Page)*npages;</div><div class="line">pages = boot_alloc(total_size);</div><div class="line"><span class="built_in">memset</span>(pages, <span class="number">0</span>, total_size);</div><div class="line"><span class="keyword">size_t</span> env_size=NENV * <span class="keyword">sizeof</span>(<span class="keyword">struct</span> Env);</div><div class="line">envs = boot_alloc(env_size);</div></pre></td></tr></table></figure>
+<p>映射到虚拟内存的UENVS段：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">boot_map_region(kern_pgdir, UENVS, ROUNDUP(env_size, PGSIZE), PADDR(envs), PTE_U|PTE_P);</div></pre></td></tr></table></figure>
+<h4 id="2-Creating-and-Running-Environments"><a href="#2-Creating-and-Running-Environments" class="headerlink" title="2.Creating and Running Environments"></a>2.Creating and Running Environments</h4><p>为了运行起用户态程序，我们还需要完成这几个函数：</p>
+<p>初始化化：env_init初始化env数组，env_setup_vm()初始化页表，region_alloc()分配内存。然后通过env_create创建用户态程序的env，其调用load_inode加载用户态程序内容到内存并设置好页表，调用env_run就可以运行了。</p>
+<p>代码就没有必要贴了。</p>
+<h4 id="3-Set-up-IDT"><a href="#3-Set-up-IDT" class="headerlink" title="3.Set up IDT"></a>3.Set up IDT</h4><p>首先就是参考intel的规定把注册idt中条目，反正都是些写死的东西。就不贴了。</p>
+<p>在_alltrap中push trapframe然后跳转到trap</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">_alltraps:</div><div class="line">	pushw $0   </div><div class="line">	pushw %ds</div><div class="line">	pushw $0</div><div class="line">	pushw %es</div><div class="line">	pushal</div><div class="line"></div><div class="line">    movl $GD_KD, %eax</div><div class="line">	movw %ax, %ds</div><div class="line">	movw %ax, %es</div><div class="line">	pushl %esp</div><div class="line"></div><div class="line">	call trap</div></pre></td></tr></table></figure>
+<h4 id="4-Handling-Page-Faults"><a href="#4-Handling-Page-Faults" class="headerlink" title="4.Handling Page Faults"></a>4.Handling Page Faults</h4><p>最终的trap_dispatch()：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">switch</span>(tf-&gt;tf_trapno) &#123;</div><div class="line">	<span class="keyword">case</span> T_DEBUG:</div><div class="line">	<span class="keyword">case</span> T_BRKPT:</div><div class="line">		monitor(tf);</div><div class="line">		<span class="keyword">break</span>;</div><div class="line">	<span class="keyword">case</span> T_PGFLT:</div><div class="line">		page_fault_handler(tf);</div><div class="line">		<span class="keyword">break</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="5-System-calls"><a href="#5-System-calls" class="headerlink" title="5.System calls"></a>5.System calls</h4><p>先是在lib/syscall.c中补充syscall，写完sysenter并且补充上返回地址。</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">asm</span> <span class="title">volatile</span><span class="params">(</span></span></div><div class="line">  ...</div><div class="line"> <span class="string">"movl %%esp,%%ebp\n\t"</span></div><div class="line"><span class="string">"leal 1f,%%esi\n\t"</span></div><div class="line"><span class="string">"sysenter\n\t"</span></div><div class="line"><span class="string">"1:"</span></div></pre></td></tr></table></figure>
+<p>然后补充kern/trapentry.S中的sysenter_handler，参考了学长的代码。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">	pushl $666</div><div class="line">pushl %edi</div><div class="line">pushl %ebx</div><div class="line">pushl %ecx</div><div class="line">pushl %edx</div><div class="line">pushl %eax</div><div class="line">	movw $GD_KD, %ax</div><div class="line">movw %ax, %ds</div><div class="line">movw %ax, %es</div><div class="line">call syscall</div><div class="line">movw $GD_UD, %cx</div><div class="line">movw %cx, %ds</div><div class="line">movw %cx, %es</div><div class="line">movl %ebp,%ecx</div><div class="line">movl %esi,%edx</div><div class="line">sysexit</div></pre></td></tr></table></figure>
+<p>然后在inc/x86中添加wrmsr：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">static</span> __<span class="function"><span class="keyword">inline</span> <span class="keyword">void</span></span></div><div class="line"><span class="title">write_msr</span><span class="params">(<span class="keyword">uint32_t</span> msr, <span class="keyword">uint32_t</span> val1, <span class="keyword">uint32_t</span> val2)</span> &#123;</div><div class="line">	__asm __volatile(<span class="string">"wrmsr"</span> : : <span class="string">"c"</span> (msr), <span class="string">"a"</span> (val1), <span class="string">"d"</span> (val2));</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>在kern/trap.c中补充，（不是很明白）：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">extern</span> <span class="keyword">void</span> <span class="title">sysenter_handler</span><span class="params">()</span></span>;</div><div class="line">write_msr(<span class="number">0x174</span>, (<span class="keyword">uint32_t</span>)GD_KT, <span class="number">0</span>);</div><div class="line">write_msr(<span class="number">0x175</span>, (<span class="keyword">uint32_t</span>)KSTACKTOP, <span class="number">0</span>);</div><div class="line">write_msr(<span class="number">0x176</span>, (<span class="keyword">uint32_t</span>)sysenter_handler, <span class="number">0</span>);</div></pre></td></tr></table></figure>
+<p>最终的kern/syscall.c中的syscall：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">switch</span> (syscallno)&#123;</div><div class="line">	<span class="keyword">case</span> SYS_getenvid:</div><div class="line">		<span class="keyword">return</span> sys_getenvid();</div><div class="line">	<span class="keyword">case</span> SYS_cputs:</div><div class="line">		sys_cputs((<span class="keyword">const</span> <span class="keyword">char</span>*) a1,a2);</div><div class="line">		<span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">	<span class="keyword">case</span> SYS_cgetc:</div><div class="line">		<span class="keyword">return</span> sys_cgetc();</div><div class="line">	<span class="keyword">case</span> SYS_env_destroy:</div><div class="line">		<span class="keyword">return</span> sys_env_destroy(a1);</div><div class="line">	<span class="keyword">case</span> SYS_map_kernel_page:</div><div class="line">		<span class="keyword">return</span> sys_map_kernel_page((<span class="keyword">void</span> *)a1, (<span class="keyword">void</span> *)a2);</div><div class="line">	<span class="keyword">case</span> SYS_sbrk:</div><div class="line">		<span class="keyword">return</span> sys_sbrk(a1);</div><div class="line">	<span class="keyword">default</span>:</div><div class="line">		<span class="keyword">return</span> -E_INVAL;</div><div class="line">   &#125;</div></pre></td></tr></table></figure>
+<h4 id="6-User-mode-startup"><a href="#6-User-mode-startup" class="headerlink" title="6.User-mode startup"></a>6.User-mode startup</h4><p>在lib/libmain.c中修改：thisenv = envs + ENVX(sys_getenvid());</p>
+<p>在env结构中添加一个env_brk用来记录目前栈底的地址。</p>
+<p>最后完成sys_brk函数：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">uint32_t</span> i=<span class="number">0</span>;</div><div class="line"><span class="keyword">struct</span> Page* p = <span class="literal">NULL</span>;</div><div class="line"><span class="keyword">void</span> *va = (<span class="keyword">void</span>*)(curenv-&gt;env_brk - inc);</div><div class="line"></div><div class="line">   <span class="keyword">for</span>(i=(<span class="keyword">uint32_t</span>)ROUNDDOWN(va,PGSIZE);i&lt;(<span class="keyword">uint32_t</span>)ROUNDUP(va+inc,PGSIZE);i+=PGSIZE)</div><div class="line">   &#123;</div><div class="line">       p=(<span class="keyword">struct</span> Page*)page_alloc(<span class="number">0</span>);</div><div class="line">       <span class="keyword">if</span>(p==<span class="literal">NULL</span>)&#123;</div><div class="line">           panic(<span class="string">"Memory out!"</span>);</div><div class="line">	&#125;<span class="keyword">else</span>&#123;</div><div class="line">		page_insert(curenv-&gt;env_pgdir,p,(<span class="keyword">void</span>*)i,PTE_W|PTE_U);</div><div class="line">	&#125;</div><div class="line">   &#125;</div><div class="line"><span class="keyword">return</span> curenv-&gt;env_brk;</div></pre></td></tr></table></figure>
+<h4 id="7-The-Breakpoint-Exception"><a href="#7-The-Breakpoint-Exception" class="headerlink" title="7.The Breakpoint Exception"></a>7.The Breakpoint Exception</h4><p>和之前的添加指令一样，这次熟悉一下trapframe结构就行了。</p>
+<h4 id="8-Page-faults-and-memory-protection"><a href="#8-Page-faults-and-memory-protection" class="headerlink" title="8.Page faults and memory protection"></a>8.Page faults and memory protection</h4><p>首先完成pmap.c中的user_mem_check：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">uintptr_t</span> idx;</div><div class="line"><span class="keyword">pte_t</span> *pte;</div><div class="line">perm |= PTE_U | PTE_P;</div><div class="line"></div><div class="line"><span class="keyword">for</span> (idx = (<span class="keyword">uintptr_t</span>) va; idx &lt; (<span class="keyword">uintptr_t</span>) va + len; idx = ROUNDDOWN(idx+PGSIZE, PGSIZE)) &#123;</div><div class="line">	<span class="keyword">if</span> (idx &gt;= ULIM) &#123;</div><div class="line">		user_mem_check_addr = idx;</div><div class="line">		<span class="keyword">return</span> -E_FAULT;</div><div class="line">	&#125;</div><div class="line">	pte = pgdir_walk (env-&gt;env_pgdir, (<span class="keyword">void</span>*)idx, <span class="number">0</span>);</div><div class="line">	<span class="keyword">if</span> (pte == <span class="literal">NULL</span> || (*pte &amp; perm) != perm) &#123;</div><div class="line">		user_mem_check_addr = idx;</div><div class="line">		<span class="keyword">return</span> -E_FAULT;</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line"><span class="keyword">return</span> <span class="number">0</span>;</div></pre></td></tr></table></figure>
+<p>然后完成page_fault_handler,如果在kernel态就panic。</p>
+<p>最后的练习同样参考了熊大学长的代码，利用sget获取gdt，执行sys_map_kernel_page这个危险的指令。</p>
+
+  </section>
+
+  
+  
+
+<section class="post-comments">
+
+    <div class="ds-thread" data-thread-key="2017/04/23/jos lab3/"></div>
+
+    <script type="text/javascript">
+      var duoshuoQuery = {short_name:"alfalfa"};
+      (function() {
+        var ds = document.createElement('script');
+        ds.type = 'text/javascript';ds.async = true;
+        ds.src = '//static.duoshuo.com/embed.js';
+        ds.charset = 'UTF-8';
+        (document.getElementsByTagName('head')[0] 
+        || document.getElementsByTagName('body')[0]).appendChild(ds);
+      })();
+    </script> 
+
+</section>
+
+
+</article>
+
+
+            <footer class="footer">
+
+    <span class="footer__copyright">&copy; 2017-2018. | zhoustarr@gmail.com</span>
+
+</footer>
+
+        </div>
+    </div>
+
+    <!-- js files -->
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/main.js"></script>
+    <script src="/js/scale.fix.js"></script>
+    
+
+    
+
+    <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript"> 
+        $(document).ready(function(){
+            MathJax.Hub.Config({ 
+                tex2jax: {inlineMath: [['[latex]','[/latex]'], ['\\(','\\)']]} 
+            });
+        });
+    </script>
+
+
+    
+
+    <script src="/js/awesome-toc.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $.awesome_toc({
+                overlay: true,
+                contentId: "post-content",
+            });
+        });
+    </script>
+
+
+    
+    
+    <!--kill ie6 -->
+<!--[if IE 6]>
+  <script src="//letskillie6.googlecode.com/svn/trunk/2/zh_CN.js"></script>
+<![endif]-->
+
+</body>
+</html>
